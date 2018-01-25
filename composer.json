@@ -1,0 +1,20 @@
+{
+    "name": "fandoq/crudgenerator",
+    "description": "crud generator fandoqi",
+    "authors": [
+        {
+            "name": "alireza jokar",
+            "email": "alirezajokar1@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4":{
+            "Fandoq\\Crudgenerator\\":"src/"
+        }
+    },
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/support": "^5.1",
+        "laravelcollective/html": "~5.1"
+    }
+}
