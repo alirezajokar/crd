@@ -70,12 +70,15 @@ class f4ndoqAdminCommand extends Command
 
         $routes =
             <<<EOD
-Route::get('admin', 'Admin\\AdminController@index');
-Route::resource('admin/roles', 'Admin\\RolesController');
-Route::resource('admin/permissions', 'Admin\\PermissionsController');
-Route::resource('admin/users', 'Admin\\UsersController');
-Route::get('admin/generator', ['uses' => '\Fandoq\Crudgenerator\Controllers\ProcessController@getGenerator']);
-Route::post('admin/generator', ['uses' => '\Fandoq\Crudgenerator\Controllers\ProcessController@postGenerator']);
+Route::group(['middleware'=>['auth','admin'],'prefix' => 'admin'],function(){
+            
+Route::get('/', 'Admin\\AdminController@index');
+Route::resource('/roles', 'Admin\\RolesController');
+Route::resource('/permissions', 'Admin\\PermissionsController');
+Route::resource('/users', 'Admin\\UsersController');
+Route::get('/generator', ['uses' => '\Fandoq\Crudgenerator\Controllers\ProcessController@getGenerator']);
+Route::post('/generator', ['uses' => '\Fandoq\Crudgenerator\Controllers\ProcessController@postGenerator']);
+});
 EOD;
 
         File::append($routeFile, "\n" . $routes);
