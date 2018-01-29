@@ -27,7 +27,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected function isAdmin()
+    public function isAdmin()
     {
         return $this->level == 'admin' ? true : false;
     }
