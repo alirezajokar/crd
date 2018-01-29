@@ -51,6 +51,9 @@ class crudgeneratorServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../publish/migrations/' => database_path('migrations'),
         ]);
+        $this->publishes([
+            __DIR__ . '/../publish/seeds/' => database_path('seeds'),
+        ]);
 
         $this->publishes([
             __DIR__ . '/../publish/Model/' => app_path(),
