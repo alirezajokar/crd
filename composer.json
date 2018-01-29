@@ -1,6 +1,7 @@
 {
     "name": "fandoq/crudgenerator",
     "description": "crud generator fandoqi",
+    "license": "MIT",
     "authors": [
         {
             "name": "alireza jokar",
