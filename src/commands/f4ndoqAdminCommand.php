@@ -89,6 +89,8 @@ EOD;
         $this->info("Overriding the AuthServiceProvider");
         $contents = File::get(__DIR__ . '/../../publish/Providers/AuthServiceProvider.php');
         File::put(app_path('Providers/AuthServiceProvider.php'), $contents);
+        $this->info("Dumping the composer autoload");
+        (new Process('composer dump-autoload'))->run();
         $this->info("Add admin user");
         $this->call('db:seed',['--class' => 'addadminUser']);
         $this->info("your admin user is: email: admin@change.me   password: 123456");
