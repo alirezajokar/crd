@@ -91,9 +91,8 @@ EOD;
         File::put(app_path('Providers/AuthServiceProvider.php'), $contents);
         $this->info("Dumping the composer autoload");
         (new Process('composer dump-autoload'))->run();
-        $this->info("Add admin user");
-        $this->call('db:seed',['--class' => 'addadminUser']);
-        $this->info("your admin user is: email: admin@change.me   password: 123456");
+        $this->info("first run command: php artisan db:seed --class=addadminUser");
+        $this->info("after run top command now your admin user is: email: admin@change.me   password: 123456");
         $this->info("Successfully installed Laravel Admin!");
     }
 }
