@@ -40,7 +40,13 @@ class f4ndoqAdminCommand extends Command
      */
     public function handle()
     {
-        try {
+       
+
+        $this->info("Publishing the assets");
+        $this->call('vendor:publish', ['--provider' => 'Fandoq\Crudgenerator\crudgeneratorServiceProvider', '--force' => true]);
+//        $this->call('vendor:publish', ['--provider' => 'f4ndoq\crudgenerator\LaravelAdminServiceProvider', '--force' => true]);
+
+         try {
             $this->call('migrate');
         } catch (\Illuminate\Database\QueryException $e) {
             $this->error($e->getMessage());
@@ -51,11 +57,7 @@ class f4ndoqAdminCommand extends Command
             $this->info("Generating the authentication scaffolding");
             $this->call('make:auth');
         }
-
-        $this->info("Publishing the assets");
-        $this->call('vendor:publish', ['--provider' => 'Fandoq\Crudgenerator\crudgeneratorServiceProvider', '--force' => true]);
-//        $this->call('vendor:publish', ['--provider' => 'f4ndoq\crudgenerator\LaravelAdminServiceProvider', '--force' => true]);
-
+        
         $this->info("Dumping the composer autoload");
         (new Process('composer dump-autoload'))->run();
 
