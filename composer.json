@@ -17,5 +17,12 @@
         "php": ">=5.5.9",
         "illuminate/support": "^5.1",
         "laravelcollective/html": "~5.1"
+    },
+    "extra": {
+    "laravel": {
+        "providers": [
+            "Fandoq\\Crudgenerator\\crudgeneratorServiceProvider"
+        ]
     }
+}
 }
