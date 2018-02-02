@@ -34,7 +34,7 @@ class crudgeneratorServiceProvider extends ServiceProvider
         ]);
         
         $this->publishes([
-            __DIR__.'/../publish/assets/' => public_path('assets'),
+            __DIR__.'/../publish/assets/' => public_path(),
         ], 'public');
 
         if (\App::VERSION() <= '5.2') {
