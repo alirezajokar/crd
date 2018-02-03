@@ -74,7 +74,7 @@ class maincrud extends Command
         $this->routeName = ($routeGroup) ? $routeGroup . '/' . snake_case($name, '-') : snake_case($name, '-');
         $perPage = intval($this->option('pagination'));
 
-        $controllerNamespace = ($this->option('controller-namespace')) ? $this->option('controller-namespace') . '\\' : '';
+        $controllerNamespace = ($this->option('controller-namespace')) ? $this->option('controller-namespace') . '\\' : 'Admin\\';
         $modelNamespace = ($this->option('model-namespace')) ? trim($this->option('model-namespace')) . '\\' : '';
 
         if (empty($this->option('fields')))
