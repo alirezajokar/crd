@@ -119,7 +119,7 @@ class maincrud extends Command
         }
 
         $primaryKey = $this->option('pk');
-        $viewPath = $this->option('view-path');
+        $viewPath = ($this->option('view-path')) ? $this->option('view-path') : 'admin';
 
         $foreignKeys = $this->option('foreign-keys');
 
