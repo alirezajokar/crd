@@ -341,7 +341,7 @@
 
         <div id="content" class="padding-20">
 
-            content here...
+            @yield('content')
 
         </div>
     </section>
