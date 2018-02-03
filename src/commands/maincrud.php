@@ -65,7 +65,7 @@ class maincrud extends Command
     public function handle()
     {
         $name = $this->argument('name');
-        $modelName = str_singular($name);
+        $modelName = ucfirst(str_singular($name));
         $migrationName = str_plural(snake_case($name));
         $tableName = $migrationName;
         $validations = "";
