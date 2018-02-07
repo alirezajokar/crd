@@ -61,7 +61,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         @if (session('status'))
-        swal("{{ __('messages.delItem.success') }}", {
+        swal("{{ session('status') }}", {
             icon: "success",
             timer: 3000
         });
