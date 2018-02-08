@@ -1,7 +1,4 @@
 %%formFieldsHtml%%
 
-<div class="form-group">
-    <div class="col-md-offset-4 col-md-4">
-        <input class="btn btn-primary" type="submit" value="{{ $submitButtonText or 'Create' }}">
-    </div>
-</div>
+<button type="submit" class="btn btn-primary">{{ $submitButtonText or 'Create' }}</button>
+<button type="reset" class="btn btn-default">Reset</button>
