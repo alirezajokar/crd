@@ -14,8 +14,8 @@
         }
     },
     "require": {
-        "php": ">=5.5.9",
-        "illuminate/support": "^5.1",
+        "php": ">=7.0.0",
+        "illuminate/support": "^5.5",
         "laravelcollective/html": "~5.5"
     },
     "extra": {
