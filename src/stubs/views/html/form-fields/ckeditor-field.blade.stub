@@ -1,0 +1,5 @@
+<script src="/ckeditor/ckeditor.js"></script>
+<textarea class="form-control" rows="5" name="%%itemName%%" type="%%fieldType%%" id="%%itemName%%" %%required%%>{{ $%%crudNameSingular%%->%%itemName%% or ''}}</textarea>
+<script>
+CKEDITOR.replace( '%%itemName%%' );
+</script>
