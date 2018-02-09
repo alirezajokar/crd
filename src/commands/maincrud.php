@@ -180,7 +180,9 @@ class maincrud extends Command
             $this->call('crud:lang', ['name' => $name, '--fields' => $fields, '--locales' => $locales]);
         }
         // For optimizing the class loader
-        $this->callSilent('optimize');
+        if (\App::VERSION() <= '5.5') {
+            $this->callSilent('optimize');
+        }
 
         // Updating the Http/routes.php file
         $routeFile = app_path('Http/routes.php');
