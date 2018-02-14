@@ -31,5 +31,5 @@
     </div>
 @endsection
 @section('script')
-%%screiptSec%%
+%%scriptSec%%
 @endsection
