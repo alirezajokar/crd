@@ -44,6 +44,7 @@ class CrudMigrationCommand extends GeneratorCommand
         'datetime' => 'dateTime',
         'time' => 'time',
         'timestamp' => 'timestamp',
+        'ckeditor' => 'text',
         'text' => 'text',
         'mediumtext' => 'mediumText',
         'longtext' => 'longText',
