@@ -1,0 +1,12 @@
+<div class="form-group">
+    <div class="input-group">
+   <span class="input-group-btn">
+     <a id="%%itemName%%" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+       <i class="fa fa-picture-o"></i> Choose
+     </a>
+       <small class="text-muted block">Max file size: 1Mb (zip/pdf/jpg/png)</small>
+   </span>
+    <input id="thumbnail" class="form-control" type="text" name="%%itemName%%" value="{{ $%%crudNameSingular%%->%%itemName%% or ''}}">
+</div>
+    <img id="holder" style="margin-top:15px;max-height:100px;">
+</div>
