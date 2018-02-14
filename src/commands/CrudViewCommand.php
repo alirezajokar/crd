@@ -98,7 +98,7 @@ class CrudViewCommand extends Command
         'formBodyHtml',
         'viewTemplateDir',
         'formBodyHtmlForShowView',
-        'screiptSec',
+        'scriptSec',
     ];
 
     /**
@@ -241,7 +241,7 @@ class CrudViewCommand extends Command
      */
     protected $delimiter;
 
-    protected $screiptSec = "";
+    protected $scriptSec = "";
 
     /**
      * Create a new command instance.
@@ -368,8 +368,8 @@ class CrudViewCommand extends Command
         return [
             'index' => ['formHeadingHtml', 'formBodyHtml', 'crudName', 'crudNameCap', 'modelName', 'viewName', 'routeGroup', 'primaryKey'],
             'form' => ['formFieldsHtml'],
-            'create' => ['crudName', 'crudNameCap', 'modelName', 'modelNameCap', 'viewName', 'routeGroup', 'viewTemplateDir','screiptSec'],
-            'edit' => ['crudName', 'crudNameSingular', 'crudNameCap', 'modelNameCap', 'modelName', 'viewName', 'routeGroup', 'primaryKey', 'viewTemplateDir','screiptSec'],
+            'create' => ['crudName', 'crudNameCap', 'modelName', 'modelNameCap', 'viewName', 'routeGroup', 'viewTemplateDir','scriptSec'],
+            'edit' => ['crudName', 'crudNameSingular', 'crudNameCap', 'modelNameCap', 'modelName', 'viewName', 'routeGroup', 'primaryKey', 'viewTemplateDir','scriptSec'],
             'show' => ['formHeadingHtml', 'formBodyHtml', 'formBodyHtmlForShowView', 'crudName', 'crudNameSingular', 'crudNameCap', 'modelName', 'viewName', 'routeGroup', 'primaryKey'],
         ];
     }
@@ -609,7 +609,7 @@ class CrudViewCommand extends Command
     }
     protected function createCkeditorField($item)
     {
-        $this->screiptSec .='<script src="/ckeditor/ckeditor.js"></script>
+        $this->scriptSec .='<script src="/ckeditor/ckeditor.js"></script>
 <script>
     CKEDITOR.replace("'.$item['name'].'");
 </script>';
@@ -632,7 +632,7 @@ class CrudViewCommand extends Command
 
     protected function createImageField($item)
     {
-        $this->screiptSec .= '<script src="/vendor/laravel-filemanager/js/lfm.js"></script>
+        $this->scriptSec .= '<script src="/vendor/laravel-filemanager/js/lfm.js"></script>
     <script>
         $("#'.$item['name'].'").filemanager("image", {prefix: "/admin"});
     </script>';
