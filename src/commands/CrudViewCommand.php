@@ -48,6 +48,7 @@ class CrudViewCommand extends Command
         'varchar' => 'text',
         'text' => 'textarea',
         'ckeditor' => 'ckeditor',
+        'image' => 'image',
         'mediumtext' => 'textarea',
         'longtext' => 'textarea',
         'json' => 'textarea',
@@ -97,6 +98,7 @@ class CrudViewCommand extends Command
         'formBodyHtml',
         'viewTemplateDir',
         'formBodyHtmlForShowView',
+        'screiptSec',
     ];
 
     /**
@@ -239,6 +241,8 @@ class CrudViewCommand extends Command
      */
     protected $delimiter;
 
+    protected $screiptSec = "";
+
     /**
      * Create a new command instance.
      *
@@ -364,8 +368,8 @@ class CrudViewCommand extends Command
         return [
             'index' => ['formHeadingHtml', 'formBodyHtml', 'crudName', 'crudNameCap', 'modelName', 'viewName', 'routeGroup', 'primaryKey'],
             'form' => ['formFieldsHtml'],
-            'create' => ['crudName', 'crudNameCap', 'modelName', 'modelNameCap', 'viewName', 'routeGroup', 'viewTemplateDir'],
-            'edit' => ['crudName', 'crudNameSingular', 'crudNameCap', 'modelNameCap', 'modelName', 'viewName', 'routeGroup', 'primaryKey', 'viewTemplateDir'],
+            'create' => ['crudName', 'crudNameCap', 'modelName', 'modelNameCap', 'viewName', 'routeGroup', 'viewTemplateDir','screiptSec'],
+            'edit' => ['crudName', 'crudNameSingular', 'crudNameCap', 'modelNameCap', 'modelName', 'viewName', 'routeGroup', 'primaryKey', 'viewTemplateDir','screiptSec'],
             'show' => ['formHeadingHtml', 'formBodyHtml', 'formBodyHtmlForShowView', 'crudName', 'crudNameSingular', 'crudNameCap', 'modelName', 'viewName', 'routeGroup', 'primaryKey'],
         ];
     }
@@ -473,6 +477,8 @@ class CrudViewCommand extends Command
                 return $this->createTextareaField($item);
             case 'ckeditor':
                 return $this->createCkeditorField($item);
+            case 'image':
+                return $this->createImageField($item);
             case 'select':
             case 'enum':
                 return $this->createSelectField($item);
@@ -601,9 +607,12 @@ class CrudViewCommand extends Command
             $markup
         );
     }
-
     protected function createCkeditorField($item)
     {
+        $this->screiptSec .='<script src="/ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace("'.$item['name'].'");
+</script>';
         $start = $this->delimiter[0];
         $end = $this->delimiter[1];
 
@@ -621,6 +630,28 @@ class CrudViewCommand extends Command
         );
     }
 
+    protected function createImageField($item)
+    {
+        $this->screiptSec .= '<script src="/vendor/laravel-filemanager/js/lfm.js"></script>
+    <script>
+        $("#'.$item['name'].'").filemanager("image", {prefix: "/admin"});
+    </script>';
+        $start = $this->delimiter[0];
+        $end = $this->delimiter[1];
+
+        $required = $item['required'] ? 'required' : '';
+
+        $markup = File::get($this->viewDirectoryPath . 'form-fields/image-field.blade.stub');
+        $markup = str_replace($start . 'required' . $end, $required, $markup);
+        $markup = str_replace($start . 'fieldType' . $end, $this->typeLookup[$item['type']], $markup);
+        $markup = str_replace($start . 'itemName' . $end, $item['name'], $markup);
+        $markup = str_replace($start . 'crudNameSingular' . $end, $this->crudNameSingular, $markup);
+
+        return $this->wrapField(
+            $item,
+            $markup
+        );
+    }
     /**
      * Create a select field using the form helper.
      *
