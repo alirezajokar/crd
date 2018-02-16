@@ -44,7 +44,8 @@ class f4ndoqAdminCommand extends Command
 
         $this->info("Publishing the assets");
         $this->call('vendor:publish', ['--provider' => 'Fandoq\Crudgenerator\crudgeneratorServiceProvider', '--force' => true]);
-//        $this->call('vendor:publish', ['--provider' => 'f4ndoq\crudgenerator\LaravelAdminServiceProvider', '--force' => true]);
+        $this->call('vendor:publish', ['--tag' => 'lfm_config']);
+        $this->call('vendor:publish', ['--tag' => 'lfm_public']);
 
          try {
             $this->call('migrate');
