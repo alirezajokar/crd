@@ -15,7 +15,8 @@
     },
     "require": {
         "php": ">=5.5.9",
-        "laravelcollective/html": "~5.1"
+        "laravelcollective/html": "~5.1",
+        "unisharp/laravel-filemanager" : "~1.8"
     },
     "extra": {
     "laravel": {
