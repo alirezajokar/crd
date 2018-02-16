@@ -71,10 +71,6 @@ class crudgeneratorServiceProvider extends ServiceProvider
         ]);
 
         $this->publishes([
-            __DIR__ . '/../publish/crudgenerator.php' => config_path('crudgenerator.php'),
-        ]);
-
-        $this->publishes([
             __DIR__ . '/views' => base_path('resources/views/vendor/laravel-admin'),
         ], 'views');
 
