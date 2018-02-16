@@ -32,6 +32,9 @@ class crudgeneratorServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../publish/assets/' => public_path('assets/'),
         ], 'public');
+        $this->publishes([
+            __DIR__.'/../publish/ckeditor/' => public_path('ckeditor/'),
+        ], 'public');
 
         if (\App::VERSION() <= '5.2') {
             $this->publishes([
