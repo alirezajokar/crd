@@ -22,6 +22,7 @@ class crudgeneratorServiceProvider extends ServiceProvider
                 commands\CrudControllerCommand::class,
                 commands\CrudModelCommand::class,
                 commands\CrudViewCommand::class,
+                commands\sayHello::class,
             ]);
         }
 
