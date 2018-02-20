@@ -11,7 +11,7 @@ class sayHello extends Command
      *
      * @var string
      */
-    protected $signature = 'crud:help';
+    protected $signature = 'fandoq:help';
 
     /**
      * The console command description.
