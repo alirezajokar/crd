@@ -11,7 +11,7 @@
                 <i class="main-icon fa fa-bar-chart-o"></i> <span>level</span>
             </a>
             <ul><!-- submenus -->
-                <li><a href="graphs-flot.html">level 1</a></li>
+                <li><a href="#">level 1</a></li>
                 <li>
                     <a href="#">
                         <i class="fa fa-menu-arrow pull-right"></i>
