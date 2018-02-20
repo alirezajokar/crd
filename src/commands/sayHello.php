@@ -11,14 +11,14 @@ class sayHello extends Command
      *
      * @var string
      */
-    protected $signature = 'f4ndoq:sayhello';
+    protected $signature = 'crud:help';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'help for fandoq crud generator';
 
     /**
      * Create a new command instance.
@@ -37,6 +37,14 @@ class sayHello extends Command
      */
     public function handle()
     {
-        $this->line("hello world!");
+        $this->line("hello! welcome to fandoq crud generator");
+        $this->line("after installing the package for install admin panel run command:");
+        $this->line("php artisan fandoq:install");
+        $this->line("then add below line into kernel in $routeMiddleware");
+        $this->line("'admin' => \App\Http\Middleware\CheckAdminAuthenticated::class,");
+        $this->line("then run command: php artisan db:seed --class=addadminUser");
+        $this->line("http://yourproject.com/admin");
+        $this->line("username: admin@change.me");
+        $this->line("password: 123456");
     }
 }
