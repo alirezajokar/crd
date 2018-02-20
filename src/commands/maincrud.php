@@ -14,7 +14,7 @@ class maincrud extends Command
      *
      * @var string
      */
-    protected $signature = 'jojo:generate
+    protected $signature = 'crud:make
                             {name : The name of the Crud.}
                             {--fields= : Field names for the form & migration.}
                             {--fields_from_file= : Fields from a json file.}
