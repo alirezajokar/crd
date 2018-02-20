@@ -14,7 +14,7 @@ class f4ndoqAdminCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'f4ndoq:install';
+    protected $signature = 'fandoq:install';
 
     /**
      * The console command description.
