@@ -11,7 +11,7 @@ class CrudModelCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $signature = 'jojo:model
+    protected $signature = 'crud:model
                             {name : The name of the model.}
                             {--table= : The name of the table.}
                             {--fillable= : The names of the fillable columns.}
