@@ -11,7 +11,7 @@ class CrudMigrationCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $signature = 'jojo:migration
+    protected $signature = 'crud:migration
                             {name : The name of the migration.}
                             {--schema= : The name of the schema.}
                             {--indexes= : The fields to add an index to.}
