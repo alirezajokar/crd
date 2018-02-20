@@ -40,7 +40,7 @@ class sayHello extends Command
         $this->line("hello! welcome to fandoq crud generator");
         $this->line("after installing the package for install admin panel run command:");
         $this->line("php artisan fandoq:install");
-        $this->line("then add below line into kernel in $routeMiddleware");
+        $this->line("then add below line into kernel in routeMiddleware");
         $this->line("'admin' => \App\Http\Middleware\CheckAdminAuthenticated::class,");
         $this->line("then run command: php artisan db:seed --class=addadminUser");
         $this->line("http://yourproject.com/admin");
