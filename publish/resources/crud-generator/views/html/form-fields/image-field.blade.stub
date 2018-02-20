@@ -8,5 +8,5 @@
    </span>
     <input id="thumbnail" class="form-control" type="text" name="%%itemName%%" value="{{ $%%crudNameSingular%%->%%itemName%% or ''}}">
 </div>
-    <img id="holder" style="margin-top:15px;max-height:100px;">
+    <img id="holder" style="margin-top:15px;max-height:100px;" src="{{ $%%crudNameSingular%%->%%itemName%% ? url($%%crudNameSingular%%->%%itemName%%) : ''}}">
 </div>
